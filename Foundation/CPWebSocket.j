@@ -30,8 +30,10 @@ kCPWebSocketStateClosed     = 2;
         [self _bindCallbacks];
         self._close = NO;
     }
+    var _unload = window.onunload;
     window.onunload = function() {
         [self close];
+        _unload();
     }
     return self;
 }
